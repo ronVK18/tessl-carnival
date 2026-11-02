@@ -1,0 +1,18 @@
+{
+  "name": "Game logic stays testable without the browser",
+  "instruction": "Game state changes live in exported plain functions that do not depend on canvas, DOM APIs, or animation frames.",
+  "relevant_when": "A TypeScript file under src/games/<game-id>/game.ts that defines game state, scoring, movement, hit detection, input actions, or round progression for a CarnivalGame.",
+  "context": "AGENTS.md says game logic is testable without a browser: state changes such as scoring, moving, and hits stay in plain exported functions and only start touches the canvas, the DOM, or requestAnimationFrame.",
+  "scope": "file",
+  "scope_reason": "A game.ts file shows which functions own state changes and whether those functions are exported and free of browser-only APIs.",
+  "checklist": [
+    {
+      "name": "exports-state-logic",
+      "rule": "Core state-changing game logic, such as createState, step, scoring, hit detection, movement, or player actions, is implemented in exported functions or exported types that tests can import directly."
+    },
+    {
+      "name": "logic-avoids-browser-apis",
+      "rule": "Those exported logic functions do not use CanvasRenderingContext2D, HTMLElement, document, window, localStorage, addEventListener, requestAnimationFrame, or pointer/keyboard event objects; browser-only APIs stay in start or drawing code."
+    }
+  ]
+}

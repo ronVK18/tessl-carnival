@@ -1,0 +1,22 @@
+{
+  "name": "Game start functions clean up browser work",
+  "instruction": "A game's start function returns a cleanup function that cancels animation frames and removes every event listener it registered.",
+  "relevant_when": "A TypeScript file under src/games/<game-id>/game.ts that exports a CarnivalGame object with a start(canvas) function and registers browser work such as requestAnimationFrame or addEventListener.",
+  "context": "AGENTS.md requires start to clean up after itself by cancelling the animation frame and removing every listener it added. Without this, switching games or restarting can leave duplicate loops and handlers running.",
+  "scope": "file",
+  "scope_reason": "The start function, listener registration, animation loop, and returned cleanup are expected to live together in the game's game.ts file.",
+  "checklist": [
+    {
+      "name": "returns-cleanup-function",
+      "rule": "The start function returns a function that performs cleanup for browser work created by start."
+    },
+    {
+      "name": "cancels-animation-frame",
+      "rule": "If start schedules animation frames, the returned cleanup function cancels the outstanding animation frame. Return not applicable if start does not schedule animation frames."
+    },
+    {
+      "name": "removes-added-listeners",
+      "rule": "For each event listener added by start, the returned cleanup function removes the same listener from the same target. Return not applicable if start does not add event listeners."
+    }
+  ]
+}
