@@ -1,0 +1,18 @@
+{
+  "name": "Games draw with the carnival theme",
+  "instruction": "Game drawing code uses the shared carnival theme and canvasFont helper instead of hard-coded canvas colours or font strings.",
+  "relevant_when": "A TypeScript file under src/games/<game-id>/game.ts that contains canvas drawing code, such as assignments to CanvasRenderingContext2D fillStyle, strokeStyle, font, lineWidth, textAlign, or drawing calls.",
+  "context": "AGENTS.md says every game draws with the carnival theme: colours, fonts and sizes come from theme and canvasFont in src/carnival/theme.ts, with no hex colours or font strings inside a game. This keeps booths visually consistent.",
+  "scope": "file",
+  "scope_reason": "A game.ts file contains the drawing code and imports needed to decide whether it uses shared theme values or hard-coded presentation values.",
+  "checklist": [
+    {
+      "name": "uses-theme-colours",
+      "rule": "Canvas colour assignments in the game use values from theme.colors, or a clearly delegated shared carnival constant, rather than hard-coded colour literals such as hex, rgb, hsl, or named CSS colours. Return not applicable if the file has no canvas colour assignments."
+    },
+    {
+      "name": "uses-canvas-font-helper",
+      "rule": "Canvas font assignments in the game use canvasFont from src/carnival/theme.ts rather than a hand-written font string. Return not applicable if the file has no canvas font assignments."
+    }
+  ]
+}

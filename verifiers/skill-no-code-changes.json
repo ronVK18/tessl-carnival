@@ -1,0 +1,18 @@
+{
+  "name": "Maintenance-loop skills file issues instead of changing code",
+  "instruction": "Maintenance-loop skills in tessl-factory file issues and do not instruct the agent to edit, commit, or open pull requests for code changes.",
+  "relevant_when": "A Markdown SKILL.md file under tessl-factory/skills/ that describes a scheduled maintenance loop such as rule mining, doc gardening, or test health.",
+  "context": "AGENTS.md describes tessl-factory/skills as sample scheduled maintenance loops that each file issues and never change code. Recent review feedback on factory setup skills repeatedly caught misleading action summaries, so the skill's stated behavior should match that safety boundary.",
+  "scope": "file",
+  "scope_reason": "Each maintenance-loop skill's SKILL.md contains the instructions that determine whether the loop is issue-only or performs repository changes.",
+  "checklist": [
+    {
+      "name": "issue-only-output",
+      "rule": "The skill's workflow directs the agent to report findings by creating or updating issues, not by directly editing source files, docs, tests, or configuration."
+    },
+    {
+      "name": "no-pr-or-commit-workflow",
+      "rule": "The skill does not instruct the agent to commit changes, push branches, open pull requests, or merge code as part of the maintenance-loop run."
+    }
+  ]
+}

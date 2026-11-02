@@ -1,0 +1,22 @@
+{
+  "name": "Games record final scores through the shared scoreboard",
+  "instruction": "A game records its final score exactly once per completed round through recordScore using its own game id.",
+  "relevant_when": "A TypeScript file under src/games/<game-id>/game.ts that exports a CarnivalGame object and implements round-ending logic with a score.",
+  "context": "AGENTS.md says every game reports scores through src/carnival/scores.ts by calling recordScore(game.id, score) once when a round ends, and no game keeps its own high score table or talks to local storage directly.",
+  "scope": "file",
+  "scope_reason": "The game.ts file contains the round state, end-of-round transition, score recording call, and any direct storage access within the game.",
+  "checklist": [
+    {
+      "name": "uses-record-score",
+      "rule": "When the file has completed-round logic with a final score, it calls recordScore from src/carnival to record that final score using the exported game's own id. Return not applicable if the game has no score or no completed round state."
+    },
+    {
+      "name": "records-once-per-round",
+      "rule": "The implementation guards score recording so a completed round records at most once before the next round starts. Return not applicable if the game has no score or no completed round state."
+    },
+    {
+      "name": "no-direct-score-storage",
+      "rule": "The game does not use localStorage, sessionStorage, indexedDB, or its own high score table for scores; persistent score storage is delegated to src/carnival."
+    }
+  ]
+}
