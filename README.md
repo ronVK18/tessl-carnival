@@ -55,7 +55,7 @@ Before the session, ask it to **Check I'm ready for the workshop**: it follows
 you anything to fix.
 
 **Bring:** a laptop and a GitHub account. For the agent path, also bring git,
-Node 22.13 or later, a coding agent (Claude Code, Codex, Cursor or similar), the
+Node 24 or later, or Node 22 from 22.13, a coding agent (Claude Code, Codex, Cursor or similar), the
 [GitHub CLI](https://cli.github.com) logged in with `gh auth login`, and the [Tessl CLI](https://tessl.io/?utm_source=github&utm_medium=readme&utm_campaign=tessl-carnival),
 installed with `curl -fsSL https://get.tessl.io | sh`, or `winget install tessl.tessl`
 on Windows. Not with npm: that package is deprecated.
@@ -99,7 +99,7 @@ session with a different carnival.
 Every merge to `main` redeploys your carnival, so your factory's work shows up
 at the same link.
 
-**Run it on your laptop instead.** You need git and Node 22.13 or later. In
+**Run it on your laptop instead.** You need git and Node 24 or later, or Node 22 from 22.13. In
 your clone:
 
 ```bash

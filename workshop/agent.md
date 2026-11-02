@@ -59,7 +59,7 @@ If you're a coding agent taking someone through this guide:
 
 - A GitHub account, signed in.
 - A coding agent that works, such as Claude Code, Codex or Cursor.
-- Node 22.13 or later, and git.
+- Node 24 or later, or Node 22 from 22.13, and git.
 - The Tessl CLI. If you don't have it yet, install it:
 
   ```bash
@@ -526,7 +526,7 @@ everything off, ask your agent: **Switch off all my factory automations**.
 
 | Problem                                                       | Try                                                                                                                                                                                                                                                             |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm ci` fails or Node is too old                             | Check `node --version` is 22.13 or later. If it isn't, install Node 24: `nvm install` reads the repo's `.nvmrc`.                                                                                                                                                |
+| `npm ci` fails or Node is too old                             | Check `node --version` is 24 or later, or 22 from 22.13. If it isn't, install Node 24: `nvm install` reads the repo's `.nvmrc`.                                                                                                                                 |
 | No **Issues** tab, or no starter issues                       | Ask your agent to **Set up my fork**, or turn Issues on by hand: [Set up your fork](../README.md#set-up-your-fork).                                                                                                                                             |
 | Pull requests show no checks                                  | Ask your agent to **Set up my fork**, or enable workflows in your fork's **Actions** tab.                                                                                                                                                                       |
 | `tessl` isn't found, or came from npm                         | Install it with `curl -fsSL https://get.tessl.io \| sh`, or `winget install tessl.tessl` on Windows. If `npm ls -g @tessl/cli` lists the old npm copy, remove it first with `npm uninstall -g @tessl/cli`.                                                      |
