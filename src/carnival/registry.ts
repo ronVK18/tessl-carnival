@@ -1,3 +1,5 @@
+import type { PrizeTier } from './prizes';
+
 /**
  * A game the midway can list and launch.
  *
@@ -10,6 +12,8 @@ export interface CarnivalGame {
   name: string;
   /** One sentence, shown on the midway. */
   description: string;
+  /** The prizes a round can win, shown in the trophy room. Optional. */
+  prizes?: readonly PrizeTier[];
   start(canvas: HTMLCanvasElement): () => void;
 }
 

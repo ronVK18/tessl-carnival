@@ -195,6 +195,22 @@ kbd {
   font-weight: normal;
 }
 
+.midway-guide .trophy-link {
+  display: block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-background);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.midway-guide .trophy-link:hover {
+  background: var(--color-text);
+}
+
 .booth-card {
   bottom: 16px;
   left: 50%;
@@ -271,4 +287,117 @@ kbd {
   border-radius: var(--radius);
   cursor: crosshair;
   touch-action: none;
+}
+
+.trophies .game-header h1 {
+  color: var(--color-accent);
+}
+
+.trophy-shelves {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trophy-shelf {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 20px 20px;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--color-surface), var(--color-background));
+  box-shadow: 0 6px 0 var(--color-wood);
+  transition: transform 0.15s ease;
+}
+
+.trophy-shelf:hover {
+  transform: translateY(-3px);
+}
+
+.trophy-shelf::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-stripeA) 0 16px,
+    var(--color-stripeB) 16px 32px
+  );
+  content: '';
+}
+
+.trophy-shelf h2 {
+  margin: 0 0 8px;
+}
+
+.trophy-shelf h2 a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.trophy-shelf h2 a:hover {
+  color: var(--color-accent);
+}
+
+.trophy-shelf .prize {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-background);
+  font-weight: bold;
+}
+
+.trophy-shelf .scores {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: rank;
+}
+
+.trophy-shelf .scores li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 4px;
+  border-bottom: 1px dashed var(--color-muted);
+  font-size: 18px;
+  font-weight: bold;
+  counter-increment: rank;
+}
+
+.trophy-shelf .scores li:last-child {
+  border-bottom: none;
+}
+
+.trophy-shelf .scores li::before {
+  color: var(--color-muted);
+  font-weight: normal;
+  content: '#' counter(rank);
+}
+
+.trophy-shelf .scores li:nth-child(1)::before {
+  content: '🥇';
+}
+
+.trophy-shelf .scores li:nth-child(2)::before {
+  content: '🥈';
+}
+
+.trophy-shelf .scores li:nth-child(3)::before {
+  content: '🥉';
+}
+
+.trophy-shelf .scores li:first-child {
+  color: var(--color-accent);
+  font-size: 22px;
+}
+
+.trophy-shelf .empty {
+  margin: 0;
+  color: var(--color-muted);
+  font-style: italic;
 }
