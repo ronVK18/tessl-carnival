@@ -17,10 +17,10 @@ your own fork of the carnival, and the same finish line: **your change, live at
 your own GitHub Pages link**. The only difference is how you set it up, so pick
 the one you prefer.
 
-| Path                                      | Pick it if                                                         | You need                                                                   |
-| ----------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| **[With your agent](workshop/agent.md)**  | You use a coding agent and want to see the setup, choice by choice | A coding agent, git, Node 22.13 or later, the GitHub CLI and the Tessl CLI |
-| **[In the browser](workshop/browser.md)** | You'd rather click through it, or your laptop can't install tools  | A GitHub account and a browser                                             |
+| Path                                      | Pick it if                                                         | You need                                                                                       |
+| ----------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| **[With your agent](workshop/agent.md)**  | You use a coding agent and want to see the setup, choice by choice | A coding agent, git, Node 24 or later, or Node 22 from 22.13, the GitHub CLI and the Tessl CLI |
+| **[In the browser](workshop/browser.md)** | You'd rather click through it, or your laptop can't install tools  | A GitHub account and a browser                                                                 |
 
 **Using a coding agent?** Open it in your clone of the carnival and paste
 **Read workshop/agent.md and take me through the core path, one step at a

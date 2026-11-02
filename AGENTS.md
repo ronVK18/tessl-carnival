@@ -124,6 +124,16 @@ You often work on an issue with nobody around to answer questions.
   rules, and say which reading you picked in the pull request.
 - **Leave these alone** unless the issue asks for them: `.github/`, `tessl.json`,
   `.tessl/` and `package-lock.json`.
+- **Keep the Node version in step.** `engines.node` in `package.json` is the
+  source of truth for the Node version. A change to it also updates the root
+  package's `engines` in `package-lock.json`, with
+  `npm install --package-lock-only`: that lockfile edit is allowed, even though
+  the lockfile is otherwise left alone. The same change updates every doc that
+  states the version: `README.md`, `WORKSHOP.md`, `workshop/agent.md` and
+  `skills/check-workshop-ready/SKILL.md` (search for `Node 2`). When the range
+  skips a major, the docs say so: for `^22.13.0 || >=24`, write "Node 24 or
+  later, or Node 22 from 22.13", not "Node 22.13 or later", which also admits
+  Node 23.
 - **Don't add dependencies.** `npm ci` has to stay quick, and the cloud machine
   can't install system packages.
 - **Before you finish,** run `npm run format`, then `npm run check`, and make
