@@ -1,9 +1,10 @@
 import './style.css';
-import { applyTheme, bestScore, type CarnivalGame } from './carnival';
+import { applyTheme, bestScore, topScores, type CarnivalGame } from './carnival';
 import { registry } from './games';
 import { startMidway } from './midway/midway';
 import type { BoothSlot } from './midway/world';
 import { carnivalLink, REPO_URL, shareLinks } from './share';
+import { trophyShelves } from './trophies';
 
 applyTheme();
 
@@ -42,6 +43,7 @@ function renderMidway() {
       <nav class="midway-guide" aria-label="Booths">
         <h2>Booths</h2>
         <ul></ul>
+        <a class="trophy-link" href="#/trophies">🏆 Trophy room</a>
       </nav>
       <div class="booth-card" aria-live="polite" hidden>
         <h2></h2>
@@ -104,6 +106,47 @@ function renderGame(game: CarnivalGame) {
   stop = game.start(app.querySelector('canvas')!);
 }
 
+function renderTrophies() {
+  document.body.dataset.view = 'trophies';
+  app.innerHTML = `
+    <section class="trophies">
+      <div class="game-header">
+        <a href="#/">← Back to the midway</a>
+        <h1>Trophy room</h1>
+      </div>
+      <ul class="trophy-shelves"></ul>
+    </section>`;
+
+  const list = app.querySelector('.trophy-shelves')!;
+  for (const shelf of trophyShelves(registry.all(), topScores)) {
+    const item = document.createElement('li');
+    item.className = 'trophy-shelf';
+    item.innerHTML = `
+      <h2><a></a></h2>
+      <p class="prize"></p>
+      <ol class="scores"></ol>`;
+    const name = item.querySelector('a')!;
+    name.textContent = shelf.game.name;
+    name.href = `#/play/${shelf.game.id}`;
+    item.querySelector('.prize')!.textContent = shelf.prize
+      ? `Best prize: ${shelf.prize.name}`
+      : 'No prize won yet';
+    const scores = item.querySelector('.scores')!;
+    for (const entry of shelf.top) {
+      const row = document.createElement('li');
+      row.textContent = String(entry.score);
+      scores.append(row);
+    }
+    if (shelf.top.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'empty';
+      empty.textContent = 'No scores yet';
+      scores.replaceWith(empty);
+    }
+    list.append(item);
+  }
+}
+
 function route() {
   stop?.();
   stop = undefined;
@@ -111,6 +154,7 @@ function route() {
   const match = location.hash.match(/^#\/play\/([\w-]+)$/);
   const game = match ? registry.get(match[1]) : undefined;
   if (game) renderGame(game);
+  else if (location.hash === '#/trophies') renderTrophies();
   else renderMidway();
 }
 

@@ -223,6 +223,9 @@ TypeScript, Vite and plain HTML canvas, with Vitest for the game logic. No UI
 framework and no native dependencies, so `npm ci` is the whole setup.
 
 - `index.html` and `src/main.ts`: the page and the router.
+- `src/trophies.ts`: the trophy room at `#/trophies`, linked from the booth
+  list: each game's top five scores and the best prize it has won. A game
+  offers prizes by setting `prizes` on its `CarnivalGame`.
 - `src/midway/`: the walkable midway. Every registered game gets a booth along
   the avenue.
 - `src/carnival/`: the shared base every game uses: the game registry, scores,
