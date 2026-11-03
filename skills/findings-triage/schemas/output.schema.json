@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["findings"],
+  "properties": {
+    "findings": {
+      "type": "array",
+      "description": "Each finding this run changed, follow-ups of in-progress findings included.",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "outcome", "reason"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": {
+            "type": "string",
+            "description": "The finding's page in the Tessl web app."
+          },
+          "outcome": {
+            "type": "string",
+            "description": "What this run decided: resolved, duplicate, ignored, for a person, or ticket."
+          },
+          "ticket": {
+            "type": "string",
+            "description": "The URL of the finding's ticket, when it has one."
+          },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  }
+}

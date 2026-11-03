@@ -138,6 +138,10 @@ You often work on an issue with nobody around to answer questions.
   in a fork, lock it down, and deploy the carnival.
 - `skills/check-workshop-ready/SKILL.md`: check a laptop and fork are ready for
   the workshop. It only checks, and changes nothing without asking.
+- `skills/learn-from-review-feedback/`, `skills/learn-from-agent-runs/`,
+  `skills/tune-review-lenses/` and `skills/findings-triage/`: the Learn from
+  past work skills, copied from the `tessl-labs/learn-from-past-work` plugin
+  (version 0.4.5). They record project findings and file tickets.
 - `tessl-factory/skills/`: sample skills for scheduled maintenance loops
   (rule mining, doc gardening, test health). Each one files issues and never
   changes code. `tessl-factory/` is a plugin, so a schedule in `tessl.json` runs
