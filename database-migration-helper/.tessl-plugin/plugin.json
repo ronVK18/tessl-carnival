@@ -1,0 +1,6 @@
+{
+  "name": "engteam/database-migration-helper",
+  "version": "0.1.0",
+  "description": "When you need to create and manage database migrations",
+  "private": true
+}

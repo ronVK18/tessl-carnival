@@ -4,26 +4,46 @@
       "house-rules": {
         "path": "verifiers/*.json",
         "level": "error",
-        "include": ["src/games/**", "tessl-factory/skills/**/*.md"],
-        "exclude": ["src/games/**/*.test.ts"],
+        "include": [
+          "src/games/**",
+          "tessl-factory/skills/**/*.md"
+        ],
+        "exclude": [
+          "src/games/**/*.test.ts"
+        ],
         "verifiers": {
           "game-theme-drawing": {
-            "include": ["src/games/*/game.ts"]
+            "include": [
+              "src/games/*/game.ts"
+            ]
           },
           "game-start-cleanup": {
-            "include": ["src/games/*/game.ts"]
+            "include": [
+              "src/games/*/game.ts"
+            ]
           },
           "game-score-recording": {
-            "include": ["src/games/*/game.ts"]
+            "include": [
+              "src/games/*/game.ts"
+            ]
           },
           "game-plain-logic": {
-            "include": ["src/games/*/game.ts"]
+            "include": [
+              "src/games/*/game.ts"
+            ]
           },
           "skill-no-code-changes": {
-            "include": ["tessl-factory/skills/**/SKILL.md"]
+            "include": [
+              "tessl-factory/skills/**/SKILL.md"
+            ]
           }
         }
       }
     }
-  }
+  },
+  "agents": [
+    "claude-code",
+    "copilot",
+    "copilot-vscode"
+  ]
 }
