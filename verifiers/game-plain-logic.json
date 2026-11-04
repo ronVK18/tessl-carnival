@@ -8,7 +8,7 @@
   "checklist": [
     {
       "name": "exports-state-logic",
-      "rule": "Core state-changing game logic, such as createState, step, scoring, hit detection, movement, or player actions, is implemented in exported functions or exported types that tests can import directly."
+      "rule": "Core state-changing game logic, such as createState, step, scoring, hit detection, movement or player actions, is implemented in exported functions (function declarations or exported const functions) that tests can import directly. Exported types or interfaces may accompany these functions but do not satisfy this item on their own: fail if any such operation is defined only as a non-exported function."
     },
     {
       "name": "logic-avoids-browser-apis",
